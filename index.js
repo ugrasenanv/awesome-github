@@ -26,14 +26,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "Github",
+      name: "Awesome Github",
       users: [],
       user: {},
       loading: false
     };
     this.SearchUsers = this.SearchUsers.bind(this);
     this.clearUsers = this.clearUsers.bind(this);
-     this.getUser = this.getUser.bind(this);
+    this.getUser = this.getUser.bind(this);
   }
   SearchUsers = async text => {
     this.setState({ loading: true });
@@ -44,12 +44,13 @@ class App extends Component {
     console.log("SearchUsers===>", responseData.data);
   };
 
+// get single Github User details
   getUser = async (userName) => {
     this.setState({ loading: true });
     const res = await axios.get(
       `https://api.github.com/users/${userName}`
     );
-    this.setState({ user: res.data.items, loading: false });
+    this.setState({ user: res.data, loading: false });
     console.log("getUser  ===>", res.data);
   };
 
@@ -61,6 +62,7 @@ class App extends Component {
   };
 
   render() {
+    const { users, user, loading  } =this.state;
     return (
       <Router>
         <div>
@@ -81,8 +83,8 @@ class App extends Component {
                       showClear={this.state.users.length > 0 ? true : false}
                     />
                     <Users
-                      loading={this.state.loading}
-                      users={this.state.users}
+                      loading={loading}
+                      users={users}
                     />
                   </Fragment>
                 )}
@@ -90,7 +92,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path='/user/:login' render={ props =>(
-                  <User {...props} getUser={props.getUser} user={props.user} loading = {props.loading}/>
+                  <User {...props} getUser={this.getUser} user={user} loading = {loading}/>
               )} />
               <Route component={NotFound} />
             

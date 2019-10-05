@@ -1,39 +1,39 @@
-import React, { Fragment, useEffect, useContext } from 'react';
-import Spinner from '../layout/Spinner';
-import Repos from '../repos/Repos';
-import { Link } from 'react-router-dom';
-import GithubContext from '../../context/github/githubContext';
+import React, { Fragment, useEffect, useContext, Component } from "react";
+import Spinner from "../layout/Spinner";
+// import Repos from "../repos/Repos";
+import { Link } from "react-router-dom";
+import GithubContext from "../../context/github/githubContext";
 
-const User = ({ match }) => {
-  const githubContext = useContext(GithubContext);
+class User extends Component {
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.login);
+    console.log("user data=======>", this.props.user);
+  }
 
-  const { getUser, loading, user, repos, getUserRepos } = githubContext;
+  // const { getUser, loading, user, repos, getUserRepos } = githubContext;
 
-  useEffect(() => {
-    getUser(match.params.login);
-    getUserRepos(match.params.login);
-    // eslint-disable-next-line
-  }, []);
+  render() {
+    const {
+      name,
+      company,
+      avatar_url,
+      location,
+      bio,
+      blog,
+      login,
+      html_url,
+      followers,
+      following,
+      public_repos,
+      public_gists,
+      hireable
+    } = this.props.user;
+    const { getUser, loading, user, repos, getUserRepos } = this.props;
 
-  const {
-    name,
-    company,
-    avatar_url,
-    location,
-    bio,
-    blog,
-    login,
-    html_url,
-    followers,
-    following,
-    public_repos,
-    public_gists,
-    hireable
-  } = user;
-
-  if (loading) return <Spinner />;
-
-  return (
+    if (loading) {
+      return <Spinner />;
+    } else {
+      return (
     <Fragment>
       <Link to='/' className='btn btn-light'>
         Back To Search
@@ -98,9 +98,44 @@ const User = ({ match }) => {
         <div className='badge badge-light'>Public Repos: {public_repos}</div>
         <div className='badge badge-dark'>Public Gists: {public_gists}</div>
       </div>
-      <Repos repos={repos} />
     </Fragment>
   );
-};
+    }
+  }
+}
+
+      // <Repos repos={repos} />
+
+// const User = ({ match }) => {
+//   const githubContext = useContext(GithubContext);
+
+//   const { getUser, loading, user, repos, getUserRepos } = githubContext;
+
+//   useEffect(() => {
+//     getUser(match.params.login);
+//     getUserRepos(match.params.login);
+//     // eslint-disable-next-line
+//   }, []);
+
+//   const {
+//     name,
+//     company,
+//     avatar_url,
+//     location,
+//     bio,
+//     blog,
+//     login,
+//     html_url,
+//     followers,
+//     following,
+//     public_repos,
+//     public_gists,
+//     hireable
+//   } = user;
+
+//   if (loading) return <Spinner />;
+
+//   );
+// };
 
 export default User;
