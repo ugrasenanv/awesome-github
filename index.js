@@ -115,7 +115,6 @@ class App extends Component {
             
             </Switch>
           </div>
-          <p>Start editing to see some magic happen :)</p>
         </div>
       </Router>
       </AlertState>
