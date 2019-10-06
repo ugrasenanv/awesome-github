@@ -249,9 +249,8 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  /* background: var(--primary-color); */
-  background: lightblue url("https://live.staticflickr.com/274/32727259936_18c24fa12f_h.jpg") no-repeat fixed center;
-
+  background: var(--dark-color);
+  /* background: lightblue url("https://live.staticflickr.com/274/32727259936_18c24fa12f_h.jpg") no-repeat fixed center; */
   color: #fff;
 }
 
@@ -358,7 +357,7 @@ table th {
   width: 100%;
   opacity: 0.9;
   margin-bottom: 1rem;
-  background: lightblue url("https://live.staticflickr.com/274/32727259936_18c24fa12f_h.jpg") no-repeat fixed center;
+  background-image: url("https://live.staticflickr.com/274/32727259936_18c24fa12f_h.jpg") no-repeat fixed center;
 
   /* https://live.staticflickr.com/274/32727259936_18c24fa12f_h.jpg */
 }

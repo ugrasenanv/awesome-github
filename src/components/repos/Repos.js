@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import RepoItem from './RepoItem';
 
 const Repos = ({ repos }) => {
-  console.log('repos===========>',repos);
-  return <div>repose </div>;
-  // return repos.map(repo => <RepoItem repo={repo} key={repo.id} />);
+  return repos.map(repo => <RepoItem repo={repo} key={repo.id} />);
 };
 
 Repos.propTypes = {

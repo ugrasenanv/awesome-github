@@ -7,7 +7,7 @@ import GithubContext from "../../context/github/githubContext";
 class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
-    console.log("user data=======>", this.props.user);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   // const { getUser, loading, user, repos, getUserRepos } = githubContext;
@@ -28,22 +28,19 @@ class User extends Component {
       public_gists,
       hireable
     } = this.props.user;
-    const { getUser, loading, user, repos, getUserRepos } = this.props;
-
+    const { getUser, loading, user, getUserRepos, repos } = this.props;
+console.log('=================',repos);
     if (loading) {
       return <Spinner />;
     } else {
       return (
         <Fragment>
           <Link to="/" className="btn btn-light">
-            Back To Search
+            Back To Search {hireable}
           </Link>
-          Hireable:{" "}
-          {hireable ? (
-            <i className="fas fa-check text-success" />
-          ) : (
-            <i className="fas fa-times-circle text-danger" />
-          )}
+          {
+        //   Hireable:{this.props.user.hireable}{hireable ? (<i className="fas fa-check text-success" />) : (<i className="fas fa-times-circle text-danger" /> )}
+        }
           <div className="card grid-2">
             <div className="all-center">
               <img
@@ -99,6 +96,7 @@ class User extends Component {
               Public Repos: {public_repos}
             </div>
             <div className="badge badge-dark">Public Gists: {public_gists}</div>
+            <div className="badge badge-dark">Hireable: {hireable}</div>
           </div>
           <Repos repos={repos} />
         </Fragment>

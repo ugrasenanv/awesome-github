@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ icon, title }) => {
+    const Background ="";
   return (
-    <nav className="navbar">
+    <nav className="navbar bg-primary" style={{backgroundImage: "url(" + Background + ")"}}>
       <h1>
         <a class="Header-link" href="https://github.com/" target="blank">
           {

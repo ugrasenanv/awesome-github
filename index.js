@@ -29,6 +29,7 @@ class App extends Component {
       name: "Awesome Github",
       users: [],
       user: {},
+      repos :[],
       loading: false
     };
     this.SearchUsers = this.SearchUsers.bind(this);
@@ -55,6 +56,16 @@ class App extends Component {
   };
 
 
+// get single getUser Repo User details 
+  getUserRepos = async (userName) => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users/${userName}/repos`
+    );
+    this.setState({ repos : res.data, loading: false });
+    console.log("getUserRepos  ===>",res.data);
+  };
+
   clearUsers = text => {
     var emptydata = [];
     console.log("clearUsers===>");
@@ -62,7 +73,7 @@ class App extends Component {
   };
 
   render() {
-    const { users, user, loading  } =this.state;
+    const { users, user, loading, repos  } =this.state;
     return (
       <Router>
         <div>
@@ -92,7 +103,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path='/user/:login' render={ props =>(
-                  <User {...props} getUser={this.getUser} user={user} loading = {loading}/>
+                  <User {...props} getUser={this.getUser} getUserRepos={this.getUserRepos} user={user} loading = {loading} repos={repos} />
               )} />
               <Route component={NotFound} />
             
