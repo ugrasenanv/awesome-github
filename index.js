@@ -10,6 +10,10 @@ import About from "./src/components/pages/About";
 import Home from './src/components/pages/Home';
 import NotFound from './src/components/pages/NotFound';
 
+
+import GithubState from './src/context/github/GithubState';
+import AlertState from './src/context/alert/AlertState';
+
  
 import { render } from "react-dom";
 import Hello from "./Hello";
@@ -75,6 +79,8 @@ class App extends Component {
   render() {
     const { users, user, loading, repos  } =this.state;
     return (
+      <GithubState>
+      <AlertState>
       <Router>
         <div>
           <Navbar
@@ -112,6 +118,8 @@ class App extends Component {
           <p>Start editing to see some magic happen :)</p>
         </div>
       </Router>
+      </AlertState>
+      </GithubState>
     );
   }
 }
