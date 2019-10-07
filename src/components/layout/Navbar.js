@@ -25,7 +25,9 @@ const Navbar = ({ icon, title }) => {
           <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
+          <Link to={`/user/ugrasenanv`} >
+              About
+            </Link>
         </li>
       </ul>
     </nav>

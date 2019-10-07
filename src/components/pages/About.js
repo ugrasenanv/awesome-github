@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
+import User from 'User'
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
     <Fragment>
-      <h1>About This App</h1>
-      <p>App to search Github users</p>
-      <p>Version: 1.0.0</p>
+     <Link to={`/user/ugrasenanv`} className='btn btn-dark btn-sm my-1'>
+              About
+            </Link>
     </Fragment>
   );
 };
