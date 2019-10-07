@@ -10,13 +10,10 @@ import About from "./src/components/pages/About";
 import Home from './src/components/pages/Home';
 import NotFound from './src/components/pages/NotFound';
 
-
 import GithubState from './src/context/github/GithubState';
 import AlertState from './src/context/alert/AlertState';
 
- 
 import { render } from "react-dom";
-import Hello from "./Hello";
 import axios from "axios";
 import "./style.css";
 
@@ -36,47 +33,8 @@ class App extends Component {
       repos :[],
       loading: false
     };
-
-    // this.SearchUsers = this.SearchUsers.bind(this);
-    // this.clearUsers = this.clearUsers.bind(this);
-    // this.getUser = this.getUser.bind(this);
   }
-  // SearchUsers = async text => {
-  //   this.setState({ loading: true });
-  //   const responseData = await axios.get(
-  //     `https://api.github.com/search/users?q=${text}`
-  //   );
-  //   this.setState({ users: responseData.data.items, loading: false });
-  //   console.log("SearchUsers===>", responseData.data);
-  // };
-
-// get single Github User details
-  // getUser = async (userName) => {
-  //   this.setState({ loading: true });
-  //   const res = await axios.get(
-  //     `https://api.github.com/users/${userName}`
-  //   );
-  //   this.setState({ user: res.data, loading: false });
-  //   console.log("getUser  ===>", res.data);
-  // };
-
-
-// get single getUser Repo User details 
-  // getUserRepos = async (userName) => {
-  //   this.setState({ loading: true });
-  //   const res = await axios.get(
-  //     `https://api.github.com/users/${userName}/repos`
-  //   );
-  //   this.setState({ repos : res.data, loading: false });
-  //   console.log("getUserRepos  ===>",res.data);
-  // };
-
-  // clearUsers = text => {
-  //   var emptydata = [];
-  //   console.log("clearUsers===>");
-  //   this.setState({ users: emptydata, loading: false });
-  // };
-
+  
   render() {
     const { users, user, loading, repos  } =this.state;
     return (
