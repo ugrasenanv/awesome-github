@@ -2,18 +2,18 @@ import React, { useState, useContext } from 'react';
 import GithubContext from '../../context/github/githubContext';
 import AlertContext from '../../context/alert/alertContext';
 
-const Search = (props) => {
+const Search = () => {
   const githubContext = useContext(GithubContext);
   const alertContext = useContext(AlertContext);
+
   const [text, setText] = useState('');
+
   const onSubmit = e => {
     e.preventDefault();
     if (text === '') {
       alertContext.setAlert('Please enter something', 'light');
     } else {
-      // githubContext.searchUsers(text);
-      console.log(props);
-      props.SearchUsers(text)
+      githubContext.searchUsers(text);
       setText('');
     }
   };
@@ -36,18 +36,16 @@ const Search = (props) => {
           className='btn btn-dark btn-block'
         />
       </form>
-      {
-        // githubContext.users.length > 0 && (
+      {githubContext.users.length > 0 && (
         <button
           className='btn btn-light btn-block'
-          onClick={props.clearUsers}
+          onClick={githubContext.clearUsers}
         >
           Clear
         </button>
-      //  onClick={githubContext.clearUsers)
-      }
+      )}
     </div>
   );
 };
 
-export default Search
+export default Search;
