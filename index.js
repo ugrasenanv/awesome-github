@@ -43,7 +43,7 @@ class App extends Component {
         <Router>
           <div className='App'>
             <Navbar 
-            icon="https://avatars1.githubusercontent.com/u/36364057?s=460&v=4"
+            icon="https://github.com/ugrasenanv.png"
             title="Awesome Github"
           />
             <div className='container'>
