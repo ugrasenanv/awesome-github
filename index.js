@@ -40,7 +40,8 @@ class App extends Component {
     return (
       <GithubState>
       <AlertState>
-        <Router>
+       { 
+         <Router>
           <div className='App'>
             <Navbar 
             icon="https://github.com/ugrasenanv.png"
@@ -69,7 +70,8 @@ class App extends Component {
               </Switch>
             </div>
           </div>
-        </Router>
+        </Router> 
+        }
       </AlertState>
     </GithubState>
     );
