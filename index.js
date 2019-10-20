@@ -48,7 +48,6 @@ class App extends Component {
             icon="https://avatars3.githubusercontent.com/u/36364057?v=4"
             title="Awesome Github"
           />
-          <SideBar />
             <div className='container'>
               <Alert />
               <Switch>

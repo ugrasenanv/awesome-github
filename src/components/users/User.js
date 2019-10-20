@@ -37,12 +37,9 @@ const User = ({ match }) => {
       <Link to='/' className='btn btn-light'>
         Back To Search
       </Link>
-      Hireable:{' '}
-      {hireable ? (
-        <i className='fas fa-check text-success' />
-      ) : (
-        <i className='fas fa-times-circle text-danger' />
-      )}
+     
+      Repositories : {public_repos}
+          
       <div className='card grid-2'>
         <div className='all-center'>
           <img
@@ -53,6 +50,12 @@ const User = ({ match }) => {
           />
           <h1>{name}</h1>
           <p>Location: {location}</p>
+                         <p>  Hireable:{' '}
+            {hireable ? (
+              <i className='fa fa-check' style={{color:'green'}} />
+            ) : (
+              <i className='fa fa-close text-danger'style={{color:'red'}} />
+            )}</p>
         </div>
         <div>
           {bio && (
