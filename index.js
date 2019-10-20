@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./src/components/layout/Navbar";
+import SideBar from "./src/components/layout/SideBar";
 import Search from "./src/components/users/Search";
 import Users from "./src/components/users/Users";
 import User from "./src/components/users/User";
@@ -47,6 +48,7 @@ class App extends Component {
             icon="https://avatars3.githubusercontent.com/u/36364057?v=4"
             title="Awesome Github"
           />
+          <SideBar />
             <div className='container'>
               <Alert />
               <Switch>
