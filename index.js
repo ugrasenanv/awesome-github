@@ -22,7 +22,7 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading: true });
     const response = await axios.get("https://api.github.com/users");
-    console.log("SearchUsers===>", response.data);
+    // console.log("SearchUsers===>", response.data);
     this.setState({ users: response.data, loading: false });
   }
   constructor() {
