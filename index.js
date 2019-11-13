@@ -14,6 +14,7 @@ import NotFound from './src/components/pages/NotFound';
 import GithubState from './src/context/github/GithubState';
 import AlertState from './src/context/alert/AlertState';
 
+
 import { render } from "react-dom";
 import axios from "axios";
 import "./style.css";
@@ -48,6 +49,12 @@ class App extends Component {
             icon="https://avatars3.githubusercontent.com/u/36364057?v=4"
             title="Awesome Github"
           />
+          {
+          //  <SideBar
+          // />
+          }
+          
+
             <div className='container'>
               <Alert />
               <Switch>
@@ -64,6 +71,7 @@ class App extends Component {
                   </Fragment>
                 )}
               />
+              
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/user/:login' component={User} />
